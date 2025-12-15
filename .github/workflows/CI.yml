@@ -12,7 +12,6 @@ on:
 
 #env:
  # IMAGE_TAG: ${{ github.sha }}
- #Errors###########
 
 jobs:
   compile:
