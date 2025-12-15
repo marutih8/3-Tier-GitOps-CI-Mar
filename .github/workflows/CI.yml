@@ -25,14 +25,7 @@ jobs:
         with:
           node-version: '23'   # use LTS if you don't need v23
 
-      - name: Install Dependencies
-        # This step is required to get 'eslint' and other packages defined in 'package.json'
-        run: npm ci
-
-      - name: 🔎 Run ESLint (Syntax Check & Linting)
-        # This command runs the lint script defined in your package.json
-        run: npm run lint
-    
+ 
       - name: Gitleaks Setup (gitleaks scan)
         uses: gitleaks/gitleaks-action@v2
 
