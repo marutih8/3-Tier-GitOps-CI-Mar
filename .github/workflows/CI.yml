@@ -10,8 +10,8 @@ on:
 # permissions:
 # contents: write   # required to push to CD repo with GITHUB_TOKEN or PAT
 
-#env:
- # IMAGE_TAG: ${{ github.sha }}
+env:
+   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
   compile:
@@ -55,5 +55,12 @@ jobs:
         run: |
          docker build -t my-username/my-app:latest .
          docker push my-username/my-app:latest
+        with:
+          context: ./api
+          file: ./api/Dockerfile
+          push: true
+          tags: |
+           marutih8/backend:latest
+           marutih8/backend:${{ env.IMAGE_TAG }}
 
   
