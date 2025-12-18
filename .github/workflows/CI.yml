@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.DockerLogin }}
           password: ${{ secrets.DockerToken }}
 
-      - name: Build and Push Image
+      - name: Build and Push Image (backend)
         uses: docker/build-push-action@v5
         with:
           context: ./api
@@ -61,4 +61,13 @@ jobs:
            marutih8/backend:latest
            marutih8/backend:${{ env.IMAGE_TAG }}
 
-  
+      - name: Build and Push Docker image (frontend)
+        uses: docker/build-push-action@v6
+        with:
+          context: ./client
+          file: ./client/Dockerfile
+          push: true
+          tags: |
+            marutih8/frontend:latest
+            marutih8/frontend:${{ env.IMAGE_TAG }}
+      
