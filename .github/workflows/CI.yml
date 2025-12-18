@@ -39,7 +39,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           scan-type: fs
-          scan-ref: .
+          scan-ref: 
           format: table
           ignore-unfixed: true
           vuln-type: os,library
@@ -50,5 +50,10 @@ jobs:
         with:
           username: ${{ secrets.DockerLogin }}
           password: ${{ secrets.DockerToken }}
+
+      - name: Build and Push Image
+        run: |
+         docker build -t my-username/my-app:latest .
+         docker push my-username/my-app:latest
 
   
