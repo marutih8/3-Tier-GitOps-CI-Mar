@@ -52,9 +52,7 @@ jobs:
           password: ${{ secrets.DockerToken }}
 
       - name: Build and Push Image
-        run: |
-         docker build -t my-username/my-app:latest .
-         docker push my-username/my-app:latest
+        uses: docker/build-push-action@v5
         with:
           context: ./api
           file: ./api/Dockerfile
