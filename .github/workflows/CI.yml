@@ -84,8 +84,8 @@ jobs:
 
       - name: Update Image Tags in Manifests
         run: |
-          sed -i "s|marutih8/backend:latest|marutih8/backend:${{ env.IMAGE_TAG }}|g" k8s/backend.yaml
-          sed -i "s|marutih8/frontend:latest|marutih8/frontend:${{ env.IMAGE_TAG }}|g" k8s/frontend.yaml
+          sed -i "s|marutih8/backend:latest|marutih8/backend:${{ env.IMAGE_TAG }}|g" k8s/backend-deployment.yaml
+          sed -i "s|marutih8/frontend:latest|marutih8/frontend:${{ env.IMAGE_TAG }}|g" k8s/frontend-deployment.yaml
 
       - name: Deploy to EKS
         run: |    
