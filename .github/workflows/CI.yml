@@ -97,5 +97,5 @@ jobs:
 
       - name: Verify Deployment
         run: |    
-            kubectl rollout status deployment/frontend-deployment -n dev
-            kubectl rollout status deployment/backend-deployment -n dev      
+            kubectl rollout status deployment/frontend -n dev
+            kubectl rollout status deployment/backend -n dev      
