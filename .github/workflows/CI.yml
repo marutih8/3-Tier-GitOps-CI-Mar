@@ -95,7 +95,7 @@ jobs:
             kubectl apply -f k8s/frontend-service.yml -n dev
 
 
-      - name: Verify Deployment
+      - name: Verify Deployment (deployment)
         run: |    
             kubectl rollout status deployment/frontend -n dev
             kubectl rollout status deployment/backend -n dev      
