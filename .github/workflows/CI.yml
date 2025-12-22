@@ -93,6 +93,8 @@ jobs:
             kubectl apply -f k8s/backend-deployment.yml -n dev
             kubectl apply -f k8s/frontend-service.yml -n dev
             kubectl apply -f k8s/frontend-service.yml -n dev
+            kubectl apply -f k8s/ingress.yml -n dev
+            kubectl apply -f k8s/my-sql.yml -n dev
 
 
       - name: Verify Deployment (deployment)
